@@ -72,7 +72,7 @@ class TestUserAddToBasketFromProductPage():
         login_page.should_be_authorized_user()
         
 
-    def test_guest_can_add_product_to_basket(self,browser):
+    def test_user_can_add_product_to_basket(self,browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
         page = ProductPage(browser, link)
         page.open()
@@ -81,7 +81,7 @@ class TestUserAddToBasketFromProductPage():
         page.check_product_name_in_cart()
         page.check_product_price_in_cart()
     
-    def test_guest_cant_see_success_message(self, browser):
+    def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
         page = ProductPage(browser, link)
         page.open()
