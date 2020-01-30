@@ -7,5 +7,3 @@ class BasketPage(BasePage):
 
     def should_see_empty_basket_text(self):
         assert self.is_element_present(*BasketPageLocators.EMPTY_BASKET_MESSAGE), "No text for empty basket"
-        #content_inner >p
-        #basket_formset
