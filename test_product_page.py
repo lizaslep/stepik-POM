@@ -4,9 +4,10 @@ from pages.login_page import LoginPage
 import time
 import pytest
 
+@pytest.mark.parametrize('parametrize', [0, 1, 2, 3, 4, 5, 6, pytest.param(7, marks=pytest.mark.xfail), 8, 9])
 @pytest.mark.need_review
-def test_guest_can_add_product_to_basket(browser):
-    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+def test_guest_can_add_product_to_basket(browser, parametrize):
+    link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{parametrize}"
     page = ProductPage(browser, link)
     page.open()
     page.add_product_to_cart()
