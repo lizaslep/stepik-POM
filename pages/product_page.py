@@ -19,13 +19,7 @@ class ProductPage(BasePage):
         price2 = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         assert price1 == price2, "Product price and price in cart do not match."
 
-    def is_not_element_present(self, how, what, timeout=4):
-        try:
-            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
-        except TimeoutException:
-            return True
 
-        return False
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"

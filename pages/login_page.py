@@ -23,3 +23,9 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REG_EMAIL_FIELD), "No email field in the registration form!"
         assert self.is_element_present(*LoginPageLocators.REG_PASSWORD_FIELD), "No password fiels in the registration form!"
         assert self.is_element_present(*LoginPageLocators.REG_REP_PASSWORD_FIELD), "No repeat password fiels in the registration form!"
+    
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REG_EMAIL_FIELD).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REG_PASSWORD_FIELD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_REP_PASSWORD_FIELD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_SUBMIT_BTN).click()
